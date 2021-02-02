@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+message = File.read(ARGV[0])
+
+$regex = /.*(\[ref: )[0-9]+\].*/
+
+if !$regex.match(message)
+	puts "Votre message de commit n'est pas valide !"
+	puts "Votre message doit contenir la reférence du ticket : [ref: numero_ticket]"
+	exit 1
+end
